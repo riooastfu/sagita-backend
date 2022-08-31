@@ -1,0 +1,7 @@
+label, jk, umur, bb, 
+feature_type, text, real, real
+'Gizi Baik', 'L', 5, 10
+'Gizi Baik', 'L', 3, 16
+'Gizi Buruk', 'L', 3, 11
+'Gizi Buruk', 'L', 4, 8
+'Gizi Baik', 'L', 2, 9

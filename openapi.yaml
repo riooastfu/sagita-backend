@@ -1,0 +1,164 @@
+swagger: "2.0"
+info:
+  description: "Restful API - Manual (C4.5 Algorithm)"
+  version: "1.0.0"
+  title: "Restful API - Manual"
+host: "localhost:3000"
+tags:
+- name: "pasien"
+  description: "CRUD data pasien"
+- name: "klasifikasi"
+  description: "CRUD data klasifikasi training"
+- name: "training"
+  description: "Generate data training & pasien"
+schemes:
+- "https"
+- "http"
+paths:
+  /pasien/add:
+    post:
+      tags:
+      - "pasien"
+      summary: "Tambah data pasien"
+      description: ""
+      operationId: "addpasien"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "body payload data"
+        required: true
+        schema:
+          $ref: "#/definitions/Pasien"
+      responses:
+        "400":
+          description: "Invalid body request"
+  /pasien/update:
+    post:
+      tags:
+      - "pasien"
+      summary: "Update data pasien"
+      description: ""
+      operationId: "updatepasien"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Pasien"
+      responses:
+        "400":
+          description: "Invalid Document ID"
+        "404":
+          description: "data not found"
+  /pasien/detail:
+    get:
+      tags:
+      - "pasien"
+      summary: "Menampilkan data pasien berdasarkan document id"
+      description: ""
+      operationId: "detail"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "document"
+        in: "query"
+        description: "document id - firebase"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "data berhasil ditemukan"
+        "400":
+          description: "Invalid status value"
+  /pasien/delete:
+    post:
+      tags:
+      - "pasien"
+      summary: "hapus data pasien"
+      description: ""
+      operationId: "deletepasien"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "[firebase] document id"
+        required: true
+        schema:
+          type: "object"
+          required: 
+           - "document_id"
+          properties:
+            document_id:
+              type: "string"
+              example: "h69233bsklj"
+      responses:
+        "400":
+          description: "Invalid ID Document"
+        "404":
+          description: "data not found"
+  /training/master:
+    get:
+      tags:
+      - "training"
+      summary: "Melakukan upload data from csv to table"
+      description: ""
+      operationId: "trainingmaster"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "berhasil"
+        "400":
+          description: "Invalid status value"
+  /training/generate:
+    get:
+      tags:
+      - "training"
+      summary: "Melakukan proses training dari data csv"
+      description: ""
+      operationId: "traininggenerate"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "berhasil"
+        "400":
+          description: "Invalid status value"
+definitions:
+  Pasien:
+    type: "object"
+    required:
+    - "name"
+    properties:
+      name:
+        type: "string"
+        example: "John Doe"
+      mother:
+        type: "string"
+        example: "John Doe"
+      jenis_kelamin:
+        type: "string"
+        enum: 
+        - "L"
+        - "P"
+      tgl_lahir:
+        type: "string"
+        example: "2017-05-20"
+      umur:
+        type: "integer"
+        example: 5
+      tinggi_badan:
+        type: "number"
+        example: 100,4 
+      berat_badan:
+        type: "number"
+        example: 10,6

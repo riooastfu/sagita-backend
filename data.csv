@@ -1,0 +1,16 @@
+id, jk, umur, bb, label
+real, text, real, real, feature_type
+1, 'L', 2, 10, 'Gizi Baik'
+2,'L', 2, 10, 'Gizi Baik'
+3,'L', 5, 25, 'Gizi Baik'
+4,'L', 4, 13, 'Gizi Baik'
+5,'L', 7, 34, 'Gizi Buruk'
+6,'L', 10, 44, 'Gizi Buruk'
+7,'L', 12, 55, 'Gizi Buruk'
+8,'P', 1, 2,'Gizi Buruk'
+9,'P', 3, 10,'Gizi Buruk'
+10,'P', 8, 10,'Gizi Baik'
+11,'P', 7, 40,'Gizi Baik'
+12,'P', 10, 56,'Gizi Buruk'
+13,'P', 11, 50,'Gizi Buruk'
+14,'P', 2, 3,'Gizi Buruk'

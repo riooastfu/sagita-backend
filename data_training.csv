@@ -1,0 +1,5 @@
+outlook, temp, humidity, wind, label
+text, real, text, text, feature_type
+'Sunny',80,'High', 'Weak', 'No'
+'Sunny',82,'High', 'Strong', 'No'
+'Overcast',73,'High', 'Weak', 'Yes' 
